@@ -1,3 +1,5 @@
+// app/page.tsx
+import AboutHostSection from '@/components/sections/AboutHostSection';
 import { SiteHeader } from '../components/layout/SiteHeader';
 import { SiteFooter } from '../components/layout/SiteFooter';
 import { HeroSection } from '../components/sections/HeroSection';
@@ -13,6 +15,7 @@ export default function HomePage() {
       <main className="space-y-2">
         <HeroSection />
         <ApartmentsSection />
+        <AboutHostSection />
         <HouseRulesSection />
         <ContactSection />
         <LegalSection />
