@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ReactNode } from 'react';
+import FloatingWhatsAppButton from '@/components/common/FloatingWhatsAppButton';
 
 export const metadata: Metadata = {
   title: 'KHH Global Projects | Appartements à Marrakech et Tanger',
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         {children}
+        <FloatingWhatsAppButton />
       </body>
     </html>
   );
