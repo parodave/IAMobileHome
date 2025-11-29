@@ -7,6 +7,7 @@ import { ApartmentsSection } from '../components/sections/ApartmentsSection';
 import { HouseRulesSection } from '../components/sections/HouseRulesSection';
 import { ContactSection } from '../components/sections/ContactSection';
 import { LegalSection } from '../components/sections/LegalSection';
+import SecuritySection from '@/components/sections/SecuritySection';
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
         <ApartmentsSection />
         <AboutHostSection />
         <HouseRulesSection />
+        <SecuritySection />
         <ContactSection />
         <LegalSection />
       </main>
