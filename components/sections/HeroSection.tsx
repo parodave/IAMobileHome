@@ -38,20 +38,22 @@ export function HeroSection() {
               </a>
             </div>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.15 }}
-            className="relative"
-          >
-            <div className="rounded-2xl border border-slate-100 bg-soft p-6 shadow-soft">
-              <div className="h-64 rounded-xl bg-gradient-to-br from-slate-100 to-white shadow-inner" />
-              <div className="mt-4 space-y-2 text-sm text-ink/70">
-                <p>Éclairage naturel, confort moderne, hospitalité inspirée des grandes maisons marocaines.</p>
-                <p className="text-ink">Sélection privée, service attentif, réservations simples.</p>
+          {false && (
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: 'easeOut', delay: 0.15 }}
+              className="relative"
+            >
+              <div className="rounded-2xl border border-slate-100 bg-soft p-6 shadow-soft">
+                <div className="h-64 rounded-xl bg-gradient-to-br from-slate-100 to-white shadow-inner" />
+                <div className="mt-4 space-y-2 text-sm text-ink/70">
+                  <p>Éclairage naturel, confort moderne, hospitalité inspirée des grandes maisons marocaines.</p>
+                  <p className="text-ink">Sélection privée, service attentif, réservations simples.</p>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
         </div>
       </PageContainer>
     </section>
