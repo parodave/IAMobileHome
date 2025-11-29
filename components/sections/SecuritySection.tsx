@@ -1,7 +1,9 @@
+// components/sections/SecuritySection.tsx
 "use client";
 
 import { FC } from 'react';
 import { PageContainer } from '../layout/PageContainer';
+import MotionSection from '@/components/motion/MotionSection';
 
 type Pillar = {
   title: string;
@@ -50,7 +52,7 @@ const pillars: Pillar[] = [
 
 const SecuritySection: FC = () => {
   return (
-    <section id="security" className="bg-white">
+    <MotionSection id="security" className="bg-white">
       <PageContainer className="space-y-10 py-16 sm:py-20 lg:py-24">
         <div className="space-y-4 text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-ink/60">Trust &amp; Safety</p>
@@ -83,7 +85,7 @@ const SecuritySection: FC = () => {
           ))}
         </div>
       </PageContainer>
-    </section>
+    </MotionSection>
   );
 };
 

@@ -1,11 +1,13 @@
+// components/sections/HeroSection.tsx
 'use client';
 
 import { motion } from 'framer-motion';
 import { PageContainer } from '../layout/PageContainer';
+import MotionSection from '@/components/motion/MotionSection';
 
 export function HeroSection() {
   return (
-    <section id="hero" className="relative overflow-hidden bg-white">
+    <MotionSection id="hero" className="relative overflow-hidden bg-white">
       <PageContainer className="pt-16 pb-14 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24">
         <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
           <motion.div
@@ -26,13 +28,13 @@ export function HeroSection() {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href="#apartments"
-                className="inline-flex items-center justify-center rounded-md bg-ink px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
+                className="inline-flex items-center justify-center rounded-md bg-ink px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-150 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
               >
                 Voir les appartements
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-md border border-slate-200 px-6 py-3 text-sm font-semibold text-ink shadow-soft transition hover:-translate-y-0.5 hover:border-ink"
+                className="inline-flex items-center justify-center rounded-md border border-slate-200 px-6 py-3 text-sm font-semibold text-ink shadow-soft transition duration-150 hover:-translate-y-0.5 hover:border-ink hover:shadow-lg active:translate-y-0"
               >
                 Contact
               </a>
@@ -56,6 +58,6 @@ export function HeroSection() {
           )}
         </div>
       </PageContainer>
-    </section>
+    </MotionSection>
   );
 }

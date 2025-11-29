@@ -1,3 +1,7 @@
+// components/sections/LegalSection.tsx
+'use client';
+
+import MotionSection from '@/components/motion/MotionSection';
 import { PageContainer } from '../layout/PageContainer';
 
 const items = [
@@ -25,7 +29,7 @@ const items = [
 
 export function LegalSection() {
   return (
-    <section id="legal" className="bg-soft">
+    <MotionSection id="legal" className="bg-soft">
       <PageContainer className="space-y-6 py-16 sm:py-20 lg:py-24">
         <div className="space-y-3">
           <p className="text-xs uppercase tracking-[0.2em] text-ink/60">Références</p>
@@ -46,6 +50,6 @@ export function LegalSection() {
           ))}
         </div>
       </PageContainer>
-    </section>
+    </MotionSection>
   );
 }

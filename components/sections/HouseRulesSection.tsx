@@ -1,4 +1,8 @@
+// components/sections/HouseRulesSection.tsx
+'use client';
+
 import { PageContainer } from '../layout/PageContainer';
+import MotionSection from '@/components/motion/MotionSection';
 
 const rules = [
   'Arrivée dès 15h00 et départ avant 11h00 (horaires flexibles sur demande).',
@@ -13,7 +17,7 @@ const rules = [
 
 export function HouseRulesSection() {
   return (
-    <section id="rules" className="bg-soft">
+    <MotionSection id="rules" className="bg-soft">
       <PageContainer className="py-16 sm:py-20 lg:py-24">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.2em] text-ink/60">Confort & sérénité</p>
@@ -30,6 +34,6 @@ export function HouseRulesSection() {
           ))}
         </div>
       </PageContainer>
-    </section>
+    </MotionSection>
   );
 }

@@ -1,3 +1,4 @@
+// components/property/BookingBar.tsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -16,22 +17,22 @@ export function BookingBar({ airbnbUrl, whatsappPhone, labelCity }: BookingBarPr
   return (
     <div className="flex flex-col gap-3 sm:flex-row">
       <motion.a
-        whileHover={{ y: -2 }}
-        whileTap={{ y: 0 }}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
         href={airbnbUrl}
         target="_blank"
         rel="noreferrer noopener"
-        className="inline-flex flex-1 items-center justify-center rounded-md bg-ink px-4 py-3 text-sm font-semibold text-white shadow-soft transition"
+        className="inline-flex flex-1 items-center justify-center rounded-md bg-ink px-4 py-3 text-sm font-semibold text-white shadow-soft transition duration-150 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
       >
         Voir sur Airbnb
       </motion.a>
       <motion.a
-        whileHover={{ y: -2 }}
-        whileTap={{ y: 0 }}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
         href={`https://wa.me/${whatsappPhone.replace(/\D/g, '')}?text=${whatsappMessage}`}
         target="_blank"
         rel="noreferrer noopener"
-        className="inline-flex flex-1 items-center justify-center rounded-md border border-slate-200 px-4 py-3 text-sm font-semibold text-ink shadow-soft transition hover:border-ink"
+        className="inline-flex flex-1 items-center justify-center rounded-md border border-slate-200 px-4 py-3 text-sm font-semibold text-ink shadow-soft transition duration-150 hover:-translate-y-0.5 hover:border-ink hover:shadow-lg active:translate-y-0"
       >
         Réservation WhatsApp
       </motion.a>

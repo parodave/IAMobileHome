@@ -1,6 +1,8 @@
 // components/property/DownloadPdfButton.tsx
 'use client';
 
+import { motion } from 'framer-motion';
+
 type DownloadPdfButtonProps = {
   propertyId: string;
 };
@@ -11,12 +13,14 @@ export default function DownloadPdfButton({ propertyId }: DownloadPdfButtonProps
   };
 
   return (
-    <button
+    <motion.button
       type="button"
       onClick={handleClick}
-      className="w-full mt-4 py-2 rounded-xl bg-black text-white text-center hover:opacity-90 transition"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="w-full mt-4 py-2 rounded-xl bg-black text-white text-center transition duration-150 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
     >
       Télécharger la fiche PDF
-    </button>
+    </motion.button>
   );
 }
