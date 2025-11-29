@@ -1,10 +1,14 @@
+// components/sections/ApartmentsSection.tsx
+'use client';
+
 import { properties } from '../../lib/properties';
 import { PageContainer } from '../layout/PageContainer';
 import { PropertyCard } from '../property/PropertyCard';
+import MotionSection from '@/components/motion/MotionSection';
 
 export function ApartmentsSection() {
   return (
-    <section id="apartments" className="bg-white">
+    <MotionSection id="apartments" className="bg-white">
       <PageContainer className="space-y-8 py-16 sm:py-20 lg:py-24">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -22,6 +26,6 @@ export function ApartmentsSection() {
           ))}
         </div>
       </PageContainer>
-    </section>
+    </MotionSection>
   );
 }

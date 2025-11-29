@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { faqItems } from "@/lib/faq";
+import MotionSection from "@/components/motion/MotionSection";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -12,7 +13,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="w-full py-20 px-6 md:px-12 max-w-5xl mx-auto">
+    <MotionSection id="faq" className="w-full py-20 px-6 md:px-12 max-w-5xl mx-auto">
       <h2 className="text-3xl font-semibold mb-6">Questions fréquentes</h2>
       <p className="text-slate-600 mb-8 text-base md:text-lg">
         Quelques réponses rapides aux questions les plus fréquentes avant votre séjour. (placeholder)
@@ -50,6 +51,6 @@ export default function FaqSection() {
           );
         })}
       </div>
-    </section>
+    </MotionSection>
   );
 }

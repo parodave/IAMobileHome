@@ -1,9 +1,11 @@
+// components/sections/ContactSection.tsx
 'use client';
 
 import { FormEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 import { PageContainer } from '../layout/PageContainer';
 import { BookingBar } from '../property/BookingBar';
+import MotionSection from '@/components/motion/MotionSection';
 
 export function ContactSection() {
   const [message, setMessage] = useState('');
@@ -20,7 +22,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-white">
+    <MotionSection id="contact" className="bg-white">
       <PageContainer className="grid gap-10 py-16 sm:py-20 lg:grid-cols-2 lg:items-start lg:py-24">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.2em] text-ink/60">Échanges</p>
@@ -82,9 +84,9 @@ export function ContactSection() {
               </div>
               <motion.button
                 type="submit"
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
-                className="inline-flex w-full items-center justify-center rounded-md bg-ink px-4 py-3 text-sm font-semibold text-white shadow-soft transition"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex w-full items-center justify-center rounded-md bg-ink px-4 py-3 text-sm font-semibold text-white shadow-soft transition duration-150 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
               >
                 Envoyer (bientôt)
               </motion.button>
@@ -95,6 +97,6 @@ export function ContactSection() {
           </div>
         )}
       </PageContainer>
-    </section>
+    </MotionSection>
   );
 }

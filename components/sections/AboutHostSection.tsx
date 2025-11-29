@@ -1,9 +1,11 @@
 // components/sections/AboutHostSection.tsx
 "use client";
 
+import MotionSection from '@/components/motion/MotionSection';
+
 export default function AboutHostSection() {
   return (
-    <section id="about" className="w-full py-20 px-6 md:px-12 max-w-5xl mx-auto">
+    <MotionSection id="about" className="w-full py-20 px-6 md:px-12 max-w-5xl mx-auto">
       <h2 className="text-3xl font-semibold mb-6">À propos de KHH Global Projects</h2>
       <p className="text-lg text-slate-600 leading-relaxed mb-4">
         Texte placeholder sur l’expérience, la gestion professionnelle, la propreté, la réactivité WhatsApp, la
@@ -27,6 +29,6 @@ export default function AboutHostSection() {
           <p className="text-slate-600 text-sm">Séjours confortables et sans stress.</p>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

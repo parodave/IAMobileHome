@@ -15,8 +15,8 @@ type PropertyCardProps = {
 export function PropertyCard({ property }: PropertyCardProps) {
   return (
     <motion.article
-      className="flex h-full flex-col gap-6 rounded-3xl border border-slate-100 bg-white p-6 shadow-soft"
-      whileHover={{ y: -4 }}
+      className="rounded-3xl border bg-white shadow-sm p-4 md:p-6 flex flex-col gap-4"
+      whileHover={{ y: -4, boxShadow: '0 24px 50px rgba(15, 23, 42, 0.15)' }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
     >
       <div className="space-y-4">
