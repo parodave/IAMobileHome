@@ -1,3 +1,4 @@
+// components/property/PropertyCard.tsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -5,6 +6,7 @@ import { Property } from '../../lib/properties';
 import { ImageCarousel } from './ImageCarousel';
 import { BookingBar } from './BookingBar';
 import { CalendarPreview } from './CalendarPreview';
+import DownloadPdfButton from './DownloadPdfButton';
 
 type PropertyCardProps = {
   property: Property;
@@ -60,6 +62,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
             whatsappPhone={property.whatsappPhone}
             labelCity={property.city}
           />
+          <DownloadPdfButton propertyId={property.id} />
         </div>
         <CalendarPreview />
       </div>
