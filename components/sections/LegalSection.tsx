@@ -9,9 +9,14 @@ type LegalDocument = {
   subtitleFr: string;
   titleEn: string;
   subtitleEn: string;
-  href: string;
-  buttonLabelFr: string;
+  href?: string;
+  buttonLabelFr?: string;
   buttonLabelEn?: string;
+  links?: {
+    href: string;
+    label: string;
+    ariaLabel?: string;
+  }[];
 };
 
 const items = [
@@ -55,6 +60,25 @@ const legalDocuments: LegalDocument[] = [
     href: '/pdfs/fiche-police-maroc.pdf',
     buttonLabelFr: 'Télécharger la fiche (PDF)',
     buttonLabelEn: 'Download the form (PDF)'
+  },
+  {
+    titleFr: 'Contrat de location saisonnière',
+    subtitleFr:
+      'Téléchargez le contrat de location saisonnière à faire signer à chaque client. Version française et version arabe disponibles en PDF.',
+    titleEn: 'Seasonal rental agreement',
+    subtitleEn: 'Downloadable rental agreement to sign with every guest. Available in French and Arabic.',
+    links: [
+      {
+        href: '/docs/contrat-location-saisonniere-fr.pdf',
+        label: 'Télécharger le contrat (FR)',
+        ariaLabel: 'Télécharger le contrat de location saisonnière en français (PDF)'
+      },
+      {
+        href: '/docs/contrat-location-saisonniere-ar.pdf',
+        label: 'Télécharger le contrat (AR)',
+        ariaLabel: 'Télécharger le contrat de location saisonnière en arabe (PDF)'
+      }
+    ]
   }
 ];
 
@@ -86,34 +110,55 @@ export function LegalSection() {
             Téléchargez les documents clés déjà disponibles pour vos locataires et ajoutez facilement de nouveaux formulaires.
           </p>
           <div className="grid gap-4 md:grid-cols-2">
-            {legalDocuments.map((doc) => (
-              <div
-                key={doc.href}
-                className="flex h-full flex-col justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                <div className="space-y-3">
-                  <div className="space-y-1">
-                    <p className="text-xs uppercase tracking-[0.2em] text-ink/60">Français</p>
-                    <h4 className="text-lg font-semibold text-ink">{doc.titleFr}</h4>
-                    <p className="text-sm text-ink/70">{doc.subtitleFr}</p>
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-xs uppercase tracking-[0.2em] text-ink/60">English</p>
-                    <h5 className="text-base font-semibold text-ink">{doc.titleEn}</h5>
-                    <p className="text-sm text-ink/70">{doc.subtitleEn}</p>
-                  </div>
-                </div>
-                <a
-                  href={doc.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={doc.buttonLabelEn ?? doc.buttonLabelFr}
-                  className="mt-4 inline-flex items-center justify-center rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+            {legalDocuments.map((doc) => {
+              const links = doc.links?.length
+                ? doc.links
+                : doc.href && doc.buttonLabelFr
+                  ? [
+                      {
+                        href: doc.href,
+                        label: doc.buttonLabelFr,
+                        ariaLabel: doc.buttonLabelEn ?? doc.buttonLabelFr
+                      }
+                    ]
+                  : [];
+
+              return (
+                <div
+                  key={`${doc.titleFr}-${doc.titleEn}`}
+                  className="flex h-full flex-col justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
                 >
-                  {doc.buttonLabelFr}
-                </a>
-              </div>
-            ))}
+                  <div className="space-y-3">
+                    <div className="space-y-1">
+                      <p className="text-xs uppercase tracking-[0.2em] text-ink/60">Français</p>
+                      <h4 className="text-lg font-semibold text-ink">{doc.titleFr}</h4>
+                      <p className="text-sm text-ink/70">{doc.subtitleFr}</p>
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-xs uppercase tracking-[0.2em] text-ink/60">English</p>
+                      <h5 className="text-base font-semibold text-ink">{doc.titleEn}</h5>
+                      <p className="text-sm text-ink/70">{doc.subtitleEn}</p>
+                    </div>
+                  </div>
+                  {links.length > 0 && (
+                    <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+                      {links.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={link.ariaLabel ?? link.label}
+                          className="inline-flex items-center justify-center rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:w-auto"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </PageContainer>
